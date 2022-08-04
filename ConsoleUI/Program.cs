@@ -15,7 +15,12 @@ namespace ConsoleUI
              */
 
             #region Vehicles
+             var vechicles = new List<Vechile>();
 
+            Car honda = new Car() { HasTrunk = true, Make = "honda", Model = "civic", Year = 2014 };
+            Motorcycle motorcycle = new Motorcycle() { HasSideCart = true, Make = "HD", Model = "Chopper", Year = 2015 };
+            var saturn = new Car() { HasTrunk = true, Make = "Saturn", Model = "Vue", Year = 2005 };
+            var lancia = new Car() { HasTrunk = true, Make = "Lancia", Model = "Delta", Year = 1980 };
             /*
              * Create an abstract class called Vehicle
              * The vehicle class shall have three string properties Year, Make, and Model
@@ -23,14 +28,22 @@ namespace ConsoleUI
              * Vehicle shall have an abstract method called DriveAbstract with no implementation
              * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
              */
-
+            vechicles.Add(honda);
+            vechicles.Add(motorcycle);
+            vechicles.Add(saturn);
+            vechicles.Add(lancia);
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
              * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
-
+            foreach (var vech in vechicles)
+            {
+                Console.WriteLine($"Make {vech.Make} Model {vech.Model} Year {vech.Year}");
+                vech.DriveAbstract();
+                Console.WriteLine("------");
+            }
             // Create a list of Vehicle called vehicles
 
             /*
